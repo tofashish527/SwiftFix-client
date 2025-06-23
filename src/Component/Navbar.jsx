@@ -25,8 +25,8 @@ const Navbar = () => {
     user && <li>
       <details>
         <summary>Dashboard</summary>
-        <ul className="p-2">
-          <li>
+        <ul className="p-5 w-40">
+          <li className=''>
             <NavLink to='/addservice' className={({ isActive }) => isActive ? 'text-blue-900 font-bold underline' : ''}>Add Service</NavLink>
           </li>
           <li>
@@ -70,7 +70,21 @@ const Navbar = () => {
       {links}
     </ul>
   </div>
-  <div className="navbar-end">
+  {/* <div className="navbar-end">
+    {user &&
+          <>
+            <div className="relative group navbar-end flex items-center gap-2">
+              <img
+                src={user.photoURL}
+                alt="User"
+                className="w-10 h-10 rounded-full border-2 border-violet-600 object-cover"
+              />
+              <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm font-medium">
+                {user.displayName || "User"}
+              </span>
+            </div>
+            </>
+    }
     <div className="navbar-end flex gap-2">
     {
       user ? <button className='btn' onClick={handleLogOut}>LogOut</button> :
@@ -79,7 +93,23 @@ const Navbar = () => {
      </>
  }
   </div>
-  </div>
+  </div> */}
+  <div className="navbar-end flex items-center gap-4">
+  {user && (
+    <div className="relative group flex items-center gap-2">
+      <span className=" border p-2 border-blue-100 btn text-sm font-medium whitespace-nowrap bg-white p-1 rounded shadow  ">
+        {user.displayName || "User"}
+      </span>
+    </div>
+  )}
+
+  {user ? (
+    <button className="border border-blue-950 hover:bg-blue-950 hover:text-white p-4  bg-blue-950 text-white border-blue-100 btn text-sm font-medium whitespace-nowrap hover:bg-white hover:text-blue-950  p-1 rounded shadow  " onClick={handleLogOut}>LogOut</button>
+  ) : (
+    <NavLink to="/login" className="border border-blue-950 p-4 bg-blue-950 text-white border-blue-100 btn text-sm font-medium whitespace-nowrap hover:bg-white hover:text-blue-950 p-1 rounded shadow  ">Login</NavLink>
+  )}
+</div>
+
 </div>
     );
 };

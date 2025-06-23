@@ -7,6 +7,7 @@ import Home from "../Pages/Home";
 import Error from "../Pages/Error";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
+import AddService from "../Pages/AddService";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
             path:'/',
             index:true,
             Component:Home
+        },
+        {
+            path:'/addservice',
+            Component:AddService,
         },
         {
             path:'/login',
