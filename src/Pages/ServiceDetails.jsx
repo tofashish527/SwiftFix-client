@@ -1,11 +1,33 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { FaLocationDot } from 'react-icons/fa6';
 import { Link, useLoaderData } from 'react-router';
+import { AuthContext } from '../Context/AuthContext';
 
 const ServiceDetails = () => {
     const service = useLoaderData();
-    //  const { user } = useContext(AuthContext);
-//   const [showModal, setShowModal] = useState(false);
+    const { user } = useContext(AuthContext);
+     const [showModal, setShowModal] = useState(false);
+  const [takingDate, setTakingDate] = useState("");
+  const [instructions, setInstructions] = useState("");
+
+  const handleBooking = () => {
+    const bookingData = {
+      serviceId: service.serviceId,
+      serviceName: service.serviceName,
+      serviceImage: service.serviceImage,
+      providerEmail: service.providerEmail,
+      providerName: service.providerName,
+      userEmail: user.email,
+      userName: user.displayName,
+      takingDate,
+      instructions,
+      price: service.servicePrice,
+      serviceStatus: "pending",
+    };
+    console.log("Booking confirmed:", bookingData);
+    // You can now POST this to your database
+    setShowModal(false); // close modal
+  };
 
 //   const handleBookingSubmit = (bookingData) => {
 //     // send POST to DB
@@ -70,19 +92,166 @@ const ServiceDetails = () => {
         
                
         
-                <Link>
-                  <button className="mt-4 w-full p-3 text-center font-semibold tracking-wide rounded-md border-2 border-gray-400 hover:bg-cyan-600 hover:text-white">
+                
+                  <button onClick={() => setShowModal(true)} className="mt-4 w-full p-3 text-center font-semibold tracking-wide rounded-md border-2 border-gray-400 hover:bg-cyan-600 hover:text-white">
                     Book Now
                   </button>
-                   {/* {showModal && (
-        <BookingModal
-          service={service}
-          user={user}
-          onClose={() => setShowModal(false)}
-          onSubmit={handleBookingSubmit}
-        />
-      )} */}
-                </Link>
+                    {/* Modal */}
+      {showModal && (
+        <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-center justify-center">
+          {/* <div className="bg-white p-6 rounded-xl shadow-xl w-full max-w-lg relative"> */}
+          
+  <div className="max-w-3xl w-full mx-4 bg-indigo-50 p-6 rounded-xl shadow-lg relative overflow-y-auto max-h-[90vh]">
+            {/* Close Button */}
+            <button
+              onClick={() => setShowModal(false)}
+              className="absolute top-3 right-4 text-2xl text-gray-600 hover:text-red-500"
+            >
+              &times;
+            </button>
+
+            <h2 className="text-xl font-bold text-center mb-4">Confirm Booking</h2>
+
+            {/* <div className="space-y-3">
+              <input
+                disabled
+                value={service.serviceId}
+                className="input input-bordered w-full"
+              />
+              <input
+                disabled
+                value={service.serviceName}
+                className="input input-bordered w-full"
+              />
+              <input
+                disabled
+                value={user.displayName}
+                className="input input-bordered w-full"
+              />
+              <input
+                disabled
+                value={user.email}
+                className="input input-bordered w-full"
+              />
+              <input
+                disabled
+                value={service.providerName}
+                className="input input-bordered w-full"
+              />
+              <input
+                disabled
+                value={service.providerEmail}
+                className="input input-bordered w-full"
+              />
+              <input
+                disabled
+                value={service.servicePrice}
+                className="input input-bordered w-full"
+              />
+              <input
+                type="date"
+                required
+                value={takingDate}
+                onChange={(e) => setTakingDate(e.target.value)}
+                className="input input-bordered w-full"
+              />
+              <textarea
+                rows={3}
+                placeholder="Special Instructions (address, area...)"
+                className="textarea textarea-bordered w-full"
+                value={instructions}
+                onChange={(e) => setInstructions(e.target.value)}
+              ></textarea>
+
+              <button onClick={handleBooking} className="btn btn-success w-full">
+                Purchase
+              </button>
+            </div> */}
+         
+{/* <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40">
+  <div className="max-w-3xl w-full mx-4 bg-indigo-50 p-6 rounded-xl shadow-lg relative overflow-y-auto max-h-[90vh]">
+    <h1 className="text-3xl font-bold mb-4 text-center">Confirm Service Booking</h1>
+
+    {/* Close Button */}
+    {/* <button onClick={onClose} className="absolute top-4 right-4 text-xl font-bold text-gray-700 hover:text-red-500">
+      &times;
+    </button> */} 
+
+    {/* Service Image */}
+    <div className="mb-4">
+      <img src={service?.serviceImage} alt={service?.serviceName} className="rounded-md w-full h-64 object-cover border border-gray-300" />
+    </div>
+
+    <form className="space-y-6">
+      {/* Booking Info */}
+      <fieldset className="border rounded-md p-4">
+        <legend className="text-lg font-semibold mb-2">Booking Details</legend>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label className="block text-sm font-medium">Service ID</label>
+            <input disabled value={service?.serviceId} className="input input-bordered w-full" />
+          </div>
+          <div>
+            <label className="block text-sm font-medium">Service Name</label>
+            <input disabled value={service?.serviceName} className="input input-bordered w-full" />
+          </div>
+          <div>
+            <label className="block text-sm font-medium">Provider Name</label>
+            <input disabled value={service?.providerName} className="input input-bordered w-full" />
+          </div>
+          <div>
+            <label className="block text-sm font-medium">Provider Email</label>
+            <input disabled value={service?.providerEmail} className="input input-bordered w-full" />
+          </div>
+          <div>
+            <label className="block text-sm font-medium">Your Name</label>
+            <input disabled value={user?.displayName} className="input input-bordered w-full" />
+          </div>
+          <div>
+            <label className="block text-sm font-medium">Your Email</label>
+            <input disabled value={user?.email} className="input input-bordered w-full" />
+          </div>
+          <div>
+            <label className="block text-sm font-medium">Service Price</label>
+            <input disabled value={`৳ ${service?.servicePrice}`} className="input input-bordered w-full" />
+          </div>
+          <div>
+            <label className="block text-sm font-medium">Service Taking Date</label>
+            <input
+              type="date"
+              required
+              value={takingDate}
+              onChange={(e) => setTakingDate(e.target.value)}
+              className="input input-bordered w-full"
+            />
+          </div>
+        </div>
+
+        <div className="mt-4">
+          <label className="block text-sm font-medium">Special Instructions</label>
+          <textarea
+            rows={3}
+            placeholder="Enter address, time, plan..."
+            className="textarea textarea-bordered w-full"
+            value={instructions}
+            onChange={(e) => setInstructions(e.target.value)}
+          ></textarea>
+        </div>
+      </fieldset>
+
+      <div className="text-center">
+        <button onClick={handleBooking} type="button" className="btn btn-success w-full md:w-1/2 mt-4">
+          Purchase
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+          
+      )}
+                
               </div>
             </div>
         </div>
