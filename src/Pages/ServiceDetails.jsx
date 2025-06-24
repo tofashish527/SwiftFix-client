@@ -14,7 +14,7 @@ const ServiceDetails = () => {
     
 const handleBooking = (e) => {
       e.preventDefault(); 
-  const application = {
+  const booking = {
     // serviceId: service._id, // use _id if that's the real MongoDB ID
     // service_id: service.serviceId,
     serviceId: service._id,             // MongoDB ObjectId (for internal reference)
@@ -31,7 +31,7 @@ const handleBooking = (e) => {
     serviceStatus: "pending",
   };
 
-  axios.post("http://localhost:3000/applications", application)
+  axios.post("http://localhost:3000/booking", booking)
     .then((res) => {
       if (res.data.insertedId) {
         Swal.fire({
