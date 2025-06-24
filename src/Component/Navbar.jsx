@@ -19,7 +19,7 @@ const Navbar = () => {
       <NavLink to='/' className={({ isActive }) => isActive ? 'text-blue-900 font-bold underline' : ''}>Home</NavLink>
     </li>
     <li>
-      <NavLink to='/services' className={({ isActive }) => isActive ? 'text-blue-900 font-bold underline' : ''}>Services</NavLink>
+      <NavLink to='/allservices' className={({ isActive }) => isActive ? 'text-blue-900 font-bold underline' : ''}>Services</NavLink>
     </li>
    {
     user && <li>
