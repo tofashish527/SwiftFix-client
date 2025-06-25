@@ -11,7 +11,7 @@ import AddService from "../Pages/AddService";
 import Privateroute from "./Privateroute";
 import ServiceDetails from "../Pages/ServiceDetails";
 import AllServices from "../Pages/AllServices";
-import ManageSevices from "../Pages/ManageSevices";
+//import ManageSevices from "../Pages/ManageSevices";
 import BookedServices from "../Pages/BookedServices";
 
 const router = createBrowserRouter([
@@ -34,10 +34,10 @@ const router = createBrowserRouter([
             path:'/addservice',
             element:<Privateroute><AddService></AddService></Privateroute>
         },
-        {
-            path:'/manageservices',
-            element:<Privateroute><ManageSevices></ManageSevices></Privateroute>
-        },
+        // {
+        //     path:'/manageservices',
+        //     element:<Privateroute><ManageSevices></ManageSevices></Privateroute>
+        // },
         {
             path:'/bookedservices',
             element:<Privateroute><BookedServices></BookedServices></Privateroute>
