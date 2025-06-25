@@ -1,6 +1,6 @@
 import React, { use } from 'react';
 import logoo from '../assets/img/logoo.png';
-import { NavLink } from 'react-router';
+import { Link, NavLink } from 'react-router';
 import { AuthContext } from '../Context/AuthContext';
 
 const Navbar = () => {
@@ -60,7 +60,7 @@ const Navbar = () => {
     </div>
      <div className="flex flex-col items-center lg:items-start text-center lg:text-left space-y-3">
                         <div className="flex items-center space-x-3">
-                            <img src={logoo} alt="Logo" className="h-16 w-auto" />
+                            <Link to='/'><img src={logoo} alt="Logo" className="h-16 w-auto" /></Link>
                             <span className="text-3xl font-bold">SwiftFix</span>
                         </div>
                     </div>
