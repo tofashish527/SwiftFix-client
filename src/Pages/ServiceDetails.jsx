@@ -188,8 +188,8 @@ const handleBooking = (e) => {
                                     </fieldset>
 
                                     <div className="text-center">
-                                        <button onClick={handleBooking} type="" className="btn btn-success w-full md:w-1/2 mt-4">
-                                            Purchase
+                                        <button  onClick={handleBooking} type="" className="btn btn-success w-full md:w-1/2 mt-4">
+                                            <Link to='/bookedservices'>Purchase</Link>
                                         </button>
                                     </div>
                                 </form>
