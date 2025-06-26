@@ -10,8 +10,7 @@ const Banner = () => {
   return (
     <div className="bg-indigo-50 min-h-screen flex items-center justify-center px-6 mb-5">
       <div className="flex flex-col md:flex-row items-center gap-10 max-w-7xl w-full">
-        
-        {/* Left Side - Text Content */}
+       
         <div className="flex-1 text-center md:text-left">
           <motion.h1>
             <motion.span
@@ -51,7 +50,7 @@ const Banner = () => {
           <button className="btn btn-primary">Get Started</button>
         </div>
 
-        {/* Right Side - Image Slider */}
+        
         <div className="flex-1 flex justify-center items-center">
           <div className="w-full max-w-[600px]">
             <ImageSlider />

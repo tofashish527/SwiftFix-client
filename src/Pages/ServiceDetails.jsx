@@ -15,9 +15,7 @@ const ServiceDetails = () => {
 const handleBooking = (e) => {
       e.preventDefault(); 
   const booking = {
-    // serviceId: service._id, // use _id if that's the real MongoDB ID
-    // service_id: service.serviceId,
-    serviceId: service._id,             // MongoDB ObjectId (for internal reference)
+    serviceId: service._id,             
   service_id: service.serviceId,  
     serviceName: service.serviceName,
     serviceImage: service.serviceImage,
@@ -41,8 +39,8 @@ const handleBooking = (e) => {
           showConfirmButton: false,
           timer: 1500,
         });
-        setShowModal(false);  // Close the modal
-        setTakingDate("");    // Reset fields
+        setShowModal(false); 
+        setTakingDate("");  
         setInstructions("");
       }
     })

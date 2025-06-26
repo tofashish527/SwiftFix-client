@@ -19,7 +19,7 @@ const handleDelete = (id) => {
         .then((res) => {
           if (res.data.deletedCount > 0) {
             Swal.fire('Deleted!', 'Your service has been deleted.', 'success').then(() => {
-              window.location.reload(); // You can also update state instead of full reload
+              window.location.reload(); 
             });
           }
         })
@@ -67,15 +67,6 @@ const handleDelete = (id) => {
           Delete
         </button>
       </td>
-                {/* <td>{job.applicationCount || 0}</td>
-                <td>
-                  <Link
-                    to={`/applications/${job._id}`}
-                    className="btn btn-sm btn-outline btn-primary"
-                  >
-                    View Applications
-                  </Link> 
-                </td>*/}
               </tr>
             ))}
           </tbody>

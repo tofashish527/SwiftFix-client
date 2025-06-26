@@ -3,7 +3,6 @@ import ServiceCard from './ServiceCard';
 import { Link } from 'react-router';
 
 const PopularServices = () => {
-   // const services=use(servicePromise)
        const [services, setServices] = useState([]);
 
   useEffect(() => {

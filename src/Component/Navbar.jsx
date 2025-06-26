@@ -70,30 +70,6 @@ const Navbar = () => {
       {links}
     </ul>
   </div>
-  {/* <div className="navbar-end">
-    {user &&
-          <>
-            <div className="relative group navbar-end flex items-center gap-2">
-              <img
-                src={user.photoURL}
-                alt="User"
-                className="w-10 h-10 rounded-full border-2 border-violet-600 object-cover"
-              />
-              <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm font-medium">
-                {user.displayName || "User"}
-              </span>
-            </div>
-            </>
-    }
-    <div className="navbar-end flex gap-2">
-    {
-      user ? <button className='btn' onClick={handleLogOut}>LogOut</button> :
-    <> 
-     <NavLink to='/login' className='btn'>Login</NavLink> 
-     </>
- }
-  </div>
-  </div> */}
   <div className="navbar-end flex items-center gap-4">
   {user && (
     <div className="relative group flex items-center gap-2">
