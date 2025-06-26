@@ -1,15 +1,17 @@
-// import React from 'react';
-// import UseAuth from '../hooks/UseAuth';
-// import Servicelist from '../Component/Servicelist';
-// import { serviceCreatedByPromise } from '../api/ServiceApi';
+import React, { Suspense } from 'react';
+import UseAuth from '../hooks/UseAuth';
+import Servicelist from '../Component/Servicelist';
+import { serviceCreatedByPromise } from '../api/ServiceApi';
 
-// const ManageSevices = () => {
-//     const {user}=UseAuth();
-//     return (
-//         <div>
-//             <Servicelist serviceCreatedByPromise={serviceCreatedByPromise(user.email)}></Servicelist>
-//         </div>
-//     );
-// };
+const ManageSevices = () => {
+    const {user}=UseAuth();
+    return (
+        <div>
+            <Suspense>
+              <Servicelist serviceCreatedByPromise={serviceCreatedByPromise(user.email)}></Servicelist>
+            </Suspense>
+        </div>
+    );
+};
 
-// export default ManageSevices;
+export default ManageSevices;

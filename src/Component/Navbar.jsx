@@ -30,7 +30,7 @@ const Navbar = () => {
             <NavLink to='/addservice' className={({ isActive }) => isActive ? 'text-blue-900 font-bold underline' : ''}>Add Service</NavLink>
           </li>
           <li>
-            <NavLink to='/manageservice' className={({ isActive }) => isActive ? 'text-blue-900 font-bold underline' : ''}>Manage Service</NavLink>
+            <NavLink to='/manageservices' className={({ isActive }) => isActive ? 'text-blue-900 font-bold underline' : ''}>Manage Service</NavLink>
           </li>
           <li>
             <NavLink to='/bookedservices' className={({ isActive }) => isActive ? 'text-blue-900 font-bold underline' : ''}>Booked Services</NavLink>
