@@ -77,11 +77,13 @@ const handleBooking = (e) => {
                         <h2 className="text-3xl font-semibold tracking-wide text-pink-950">
                             {service.serviceName}
                         </h2>
-                        <p className="text-gray-700">
+                        {/* <p className="text-gray-700">
                             {service.serviceDescription.length > 100
                                 ? service.serviceDescription.slice(0, 100) + '...'
                                 : service.serviceDescription}
-                        </p>
+                        </p> */}
+                        <p>{service.serviceDescription?.length > 100 ? service.serviceDescription.slice(0, 100) + "..." : service.serviceDescription}</p>
+
 
                         <div className="flex items-center gap-2">
                             <FaLocationDot className="text-lime-700" size={30} />

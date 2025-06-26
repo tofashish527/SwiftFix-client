@@ -3,7 +3,7 @@ import React from 'react';
 
 const BookingRow = ({index,booking}) => {
     
-    const {serviceImage,serviceName,providerName,providerEmail,_id}=booking;
+    const {serviceImage,serviceName,providerName,providerEmail}=booking;
 
     return (
             <tr>

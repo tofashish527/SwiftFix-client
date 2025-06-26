@@ -10,7 +10,7 @@ const BookedServices = () => {
         <div>
              <Helmet>
         <title>
-          SwiftFix | AllService
+          SwiftFix | BookedService
         </title>
       </Helmet>
             <Suspense fallback={'loading YOUR bookings!!'}>
