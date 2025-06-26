@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ServiceCard from '../Component/ServiceCard';
+import { Helmet } from 'react-helmet';
 
 const AllServices = () => {
   const [services, setServices] = useState([]);
@@ -11,9 +12,16 @@ const AllServices = () => {
   }, []);
 
   return (
+    
     <div className='mt-5 mb-10 px-4'>
-      <h2 className='text-center text-3xl font-bold mb-8 mt-3 text-gray-800'>All Hobby Groups</h2>
-      <div className='max-w-7xl mx-auto grid grid-cols-1
+      <Helmet>
+        <title>
+          SwiftFix | AllService
+        </title>
+           <meta name="description" content="Browse all available services on SwiftFix." />
+      </Helmet>
+      <h2 className='text-center text-3xl font-bold mb-8 mt-3 text-gray-800'>All Services</h2>
+      <div className='max-w-5xl mx-auto grid grid-cols-1
 gap-6'>
         {services.map((service) => (
           <ServiceCard key={service._id} service={service} />

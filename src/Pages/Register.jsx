@@ -1,3 +1,4 @@
+
 import React, { useContext, useState } from 'react';
 import Lottie from 'lottie-react';
 import register from '../assets/lottieFiles/register.json';
@@ -5,6 +6,7 @@ import { AuthContext } from '../Context/AuthContext';
 import SocialLogin from '../Component/SocialLogin';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { FiEye, FiEyeOff } from 'react-icons/fi';
+import { Helmet } from 'react-helmet';
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -34,6 +36,11 @@ const Register = () => {
 
   return (
     <div className="hero bg-base-200 min-h-screen">
+       <Helmet>
+        <title>
+          SwiftFix | Register
+        </title>
+      </Helmet>
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div className="text-center lg:text-left">
           <Lottie animationData={register} loop={true} style={{ width: '500px' }} />

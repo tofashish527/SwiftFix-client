@@ -30,11 +30,8 @@ const ServiceCard = ({ service}) => {
           <h2 className="text-3xl font-semibold tracking-wide text-pink-950">
             {serviceName}
           </h2>
-          <p className="text-gray-700">
-            {serviceDescription.length > 100
-              ? serviceDescription.slice(0, 100) + '...'
-              : serviceDescription}
-          </p>
+          <p>{serviceDescription?.length > 100 ? serviceDescription.slice(0, 100) + "..." : serviceDescription}</p>
+
 
           <div className="flex items-center gap-2">
             <FaLocationDot  className="text-lime-700" size={30} />

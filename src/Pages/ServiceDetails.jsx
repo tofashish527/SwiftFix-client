@@ -1,12 +1,14 @@
 import React, { useContext, useState } from 'react';
 import { FaLocationDot } from 'react-icons/fa6';
-import { Link, useLoaderData } from 'react-router';
+import { Link, useLoaderData, useNavigate } from 'react-router';
 import { AuthContext } from '../Context/AuthContext';
 import Swal from 'sweetalert2';
 import axios from 'axios';
+import { Helmet } from 'react-helmet';
 
 const ServiceDetails = () => {
     const service = useLoaderData();
+     const navigate = useNavigate();
     const { user } = useContext(AuthContext);
     const [showModal, setShowModal] = useState(false);
     const [takingDate, setTakingDate] = useState("");
@@ -42,6 +44,7 @@ const handleBooking = (e) => {
         setShowModal(false); 
         setTakingDate("");  
         setInstructions("");
+        navigate('/bookedservices')
       }
     })
     .catch((err) => {
@@ -55,6 +58,11 @@ const handleBooking = (e) => {
 };
     return (
         <div className='max-w-4xl mx-auto my-5'>
+             <Helmet>
+        <title>
+          SwiftFix | ServiceDetails
+        </title>
+      </Helmet>
             <div className="rounded-md shadow-md bg-white dark:bg-gray-50 dark:text-gray-800 rounded-xl border border-blue-200">
                 {/* Service Image */}
                 <img
@@ -151,7 +159,7 @@ const handleBooking = (e) => {
                                             </div>
                                             <div>
                                                 <label className="block text-sm font-medium">Your Name</label>
-                                                <input disabled value={user?.displayName} className="input input-bordered w-full" />
+                                                <input disabled value={user?.displayName || ''} className="input input-bordered w-full" />
                                             </div>
                                             <div>
                                                 <label className="block text-sm font-medium">Your Email</label>

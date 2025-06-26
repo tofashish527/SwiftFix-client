@@ -6,6 +6,7 @@ import { AuthContext } from '../Context/AuthContext';
 import Lottie from 'lottie-react';
 import SocialLogin from '../Component/SocialLogin';
 import { Link, useLocation, useNavigate } from 'react-router';
+import { Helmet } from 'react-helmet';
 
 const Login = () => {
     const {loginUser}=use(AuthContext);
@@ -33,6 +34,11 @@ const Login = () => {
     }
     return (
         <div className="hero bg-base-200 min-h-screen">
+           <Helmet>
+        <title>
+          SwiftFix | AllService
+        </title>
+      </Helmet>
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <div className="text-center lg:text-left">
            <Lottie animationData={login} loop={true} style={{width:'500px'}}></Lottie>

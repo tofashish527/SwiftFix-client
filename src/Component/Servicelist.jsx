@@ -56,9 +56,13 @@ const handleDelete = (id) => {
               <tr key={svc._id}>
                 <td className="font-medium">{index + 1}</td>
                 <td className="font-semibold">{svc.serviceName}</td>
-                <td><img src={svc.imageUrl}></img></td>
-                <td>{svc.area}</td>
-                <td>{svc.price}</td>
+                <td><img
+  src={svc.imageUrl || "image"}
+  alt="Service"
+  className=" object-cover"
+/></td>
+                <td>{svc.serviceArea}</td>
+                <td>{svc.servicePrice}</td>
                    <td className="flex flex-col lg:flex-row gap-2 mt-3">
         <Link to={`/updateservice/${svc._id}`} className="btn btn-outline btn-info btn-xs">
           Edit

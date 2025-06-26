@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../Context/AuthContext';
 import { useLoaderData, useNavigate } from 'react-router';
+import { Helmet } from 'react-helmet';
 
 const UpdateService = () => {
   const { user } = useContext(AuthContext);
@@ -33,6 +34,11 @@ const UpdateService = () => {
 
   return (
     <div className="max-w-4xl mx-auto p-6 bg-indigo-50 mb-10 rounded-xl shadow-md mt-6">
+       <Helmet>
+        <title>
+          SwiftFix | UpdateService
+        </title>
+      </Helmet>
       <h1 className="text-3xl font-bold mb-6 text-center">Update Service</h1>
 
       <form onSubmit={handleUpdateService} className="space-y-6">
