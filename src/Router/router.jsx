@@ -56,7 +56,7 @@ const router = createBrowserRouter([
             element:<Privateroute><BookedServices></BookedServices></Privateroute>
         },
          {
-            path:'/servicestodo',
+            path:'/booking/:id',
             hydrateFallbackElement:<Spinner></Spinner>,
             element:<Privateroute><ServiceToDo></ServiceToDo></Privateroute>
         },
