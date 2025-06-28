@@ -32,7 +32,7 @@ const router = createBrowserRouter([
             path:'/allservices',
             Component:AllServices,
             hydrateFallbackElement:<Spinner></Spinner>,
-            loader:()=>fetch('http://localhost:3000/services/'),
+            loader:()=>fetch('https://swift-fix-server-side.vercel.app/services/'),
         },
         {
             path:'/addservice',
@@ -42,7 +42,7 @@ const router = createBrowserRouter([
         {
         path:'/updateservice/:id',
         hydrateFallbackElement:<Spinner></Spinner>,
-        loader:({params})=>fetch(`http://localhost:3000/services/${params.id}`),
+        loader:({params})=>fetch(`https://swift-fix-server-side.vercel.app/services/${params.id}`),
         element:<Privateroute><UpdateService></UpdateService></Privateroute>,
         },
         {
@@ -64,7 +64,7 @@ const router = createBrowserRouter([
             path:'/services/:id',
             hydrateFallbackElement:<Spinner></Spinner>,
             element:<Privateroute><ServiceDetails></ServiceDetails></Privateroute>,
-            loader:({params})=>fetch(`http://localhost:3000/services/${params.id}`)
+            loader:({params})=>fetch(`https://swift-fix-server-side.vercel.app/services/${params.id}`)
         },
         {
             path:'/login',

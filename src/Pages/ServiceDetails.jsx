@@ -31,7 +31,7 @@ const handleBooking = (e) => {
     serviceStatus: "pending",
   };
 
-  axios.post("http://localhost:3000/booking", booking)
+  axios.post("https://swift-fix-server-side.vercel.app/booking", booking)
     .then((res) => {
       if (res.data.insertedId) {
         Swal.fire({

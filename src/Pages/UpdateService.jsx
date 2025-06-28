@@ -17,7 +17,7 @@ const UpdateService = () => {
     const formData = new FormData(form);
     const updatedData = Object.fromEntries(formData.entries());
 
-    axios.put(`http://localhost:3000/services/${_id}`, updatedData)
+    axios.put(`https://swift-fix-server-side.vercel.app/services/${_id}`, updatedData)
       .then((res) => {
         if (res.data.modifiedCount > 0) {
           Swal.fire({

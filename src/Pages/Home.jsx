@@ -6,7 +6,7 @@ import Review from '../Component/Review';
 import { Helmet } from 'react-helmet';
 
 const Home = () => {
-    const servicePromise=fetch('http://localhost:3000/services').then(res=>res.json())
+    const servicePromise=fetch('https://swift-fix-server-side.vercel.app/services').then(res=>res.json())
     return (
         <div>
              <Helmet>

@@ -12,7 +12,7 @@ const ServiceToDo = () => {
 
   useEffect(() => {
     if (user?.email) {
-      fetch(`http://localhost:3000/booking/provider?email=${user.email}`)
+      fetch(`https://swift-fix-server-side.vercel.app/booking/provider?email=${user.email}`)
         .then((res) => res.json())
         .then((data) => setApplications(data));
     }
@@ -20,7 +20,7 @@ const ServiceToDo = () => {
 
    const handleStatusChange = (e, app_id) => {
     axios
-      .patch(`http://localhost:3000/booking/${app_id}`, {
+      .patch(`https://swift-fix-server-side.vercel.app/booking/${app_id}`, {
         status: e.target.value,
       })
       .then((res) => {

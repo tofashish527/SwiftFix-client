@@ -15,7 +15,7 @@ const handleDelete = (id) => {
     confirmButtonText: 'Yes, delete it!',
   }).then((result) => {
     if (result.isConfirmed) {
-      axios.delete(`http://localhost:3000/services/${id}`)
+      axios.delete(`https://swift-fix-server-side.vercel.app/services/${id}`)
         .then((res) => {
           if (res.data.deletedCount > 0) {
             Swal.fire('Deleted!', 'Your service has been deleted.', 'success').then(() => {
