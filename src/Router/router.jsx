@@ -19,6 +19,8 @@ import ServiceToDo from "../Pages/ServiceToDo";
 import About from "../Pages/About";
 import ContactUs from "../Pages/ContactUs";
 import Packages from "../Pages/Packages";
+import FindUsNearYou from "../Pages/FindUsNearYou";
+import MyFavorite from "../Pages/Myfavourite";
 
 const router = createBrowserRouter([
   {
@@ -42,6 +44,11 @@ const router = createBrowserRouter([
         {
             path:'/package',
             element:<Privateroute><Packages></Packages></Privateroute>
+        },
+        {
+            path:'/findusnearyou',
+            element:<Privateroute><FindUsNearYou
+            ></FindUsNearYou></Privateroute>
         },
          {
             path:'/allservices',

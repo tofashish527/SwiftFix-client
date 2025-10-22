@@ -216,3 +216,4 @@ const handleBooking = (e) => {
 };
 
 export default ServiceDetails;
+

@@ -1,2 +1,13 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+/* Fix Leaflet map overlapping navbar */
+.leaflet-container {
+  z-index: 0 !important;
+}
+
+/* Ensure navbar stays above everything */
+nav {
+  z-index: 1000 !important;
+  position: relative;
+}

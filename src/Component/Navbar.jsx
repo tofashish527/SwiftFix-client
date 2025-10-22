@@ -269,7 +269,7 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-0 left-0 w-full bg-gradient-to-r from-blue-900 to-cyan-600 text-white shadow-lg z-50">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center h-20">
+      <div className="max-w-8xl mx-auto px-6 md:px-12 flex justify-between  items-center h-20">
         {/* Logo */}
         <div className="flex items-center space-x-3">
           <Link to="/" className="flex items-center space-x-2">
@@ -288,6 +288,9 @@ const Navbar = () => {
           </NavLink>
           <NavLink to="/allservices" className={navLinkStyle}>
             Services
+          </NavLink>
+          <NavLink to="/findusnearyou" className={navLinkStyle}>
+            Find Us Near You
           </NavLink>
 
           {user && (
