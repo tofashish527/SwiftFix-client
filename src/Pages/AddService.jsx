@@ -19,7 +19,7 @@ const AddService = () => {
         console.log(data)
     
 
-     axios.post('https://swift-fix-server-side.vercel.app/services', data)
+     axios.post('http://localhost:3001/services', data)
       .then(res => {
         if (res.data.insertedId) {
           Swal.fire({

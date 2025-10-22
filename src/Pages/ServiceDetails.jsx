@@ -31,7 +31,7 @@ const handleBooking = (e) => {
     serviceStatus: "pending",
   };
 
-  axios.post("https://swift-fix-server-side.vercel.app/booking", booking)
+  axios.post("http://localhost:3001/booking", booking)
     .then((res) => {
       if (res.data.insertedId) {
         Swal.fire({
@@ -63,7 +63,7 @@ const handleBooking = (e) => {
           SwiftFix | ServiceDetails
         </title>
       </Helmet>
-            <div className="rounded-md shadow-md bg-white dark:bg-gray-50 dark:text-gray-800 rounded-xl border border-blue-200">
+            <div className="rounded-md shadow-md bg-white dark:bg-gray-50 dark:text-gray-800 rounded-xl border pt-20 border-blue-200">
                 {/* Service Image */}
                 <img
                     src={service.serviceImage}

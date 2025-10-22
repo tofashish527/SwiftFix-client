@@ -16,6 +16,9 @@ import BookedServices from "../Pages/BookedServices";
 import UpdateService from "../Pages/UpdateService";
 import Spinner from "../Component/Spinner";
 import ServiceToDo from "../Pages/ServiceToDo";
+import About from "../Pages/About";
+import ContactUs from "../Pages/ContactUs";
+import Packages from "../Pages/Packages";
 
 const router = createBrowserRouter([
   {
@@ -28,11 +31,23 @@ const router = createBrowserRouter([
             index:true,
             Component:Home
         },
+        {
+            path:'/about',
+            Component:About,
+        },
+        {
+            path:'/contact',
+            element:<Privateroute><ContactUs></ContactUs></Privateroute>
+        },
+        {
+            path:'/package',
+            element:<Privateroute><Packages></Packages></Privateroute>
+        },
          {
             path:'/allservices',
             Component:AllServices,
             hydrateFallbackElement:<Spinner></Spinner>,
-            loader:()=>fetch('https://swift-fix-server-side.vercel.app/services/'),
+            loader:()=>fetch('http://localhost:3001/services/'),
         },
         {
             path:'/addservice',
@@ -42,7 +57,7 @@ const router = createBrowserRouter([
         {
         path:'/updateservice/:id',
         hydrateFallbackElement:<Spinner></Spinner>,
-        loader:({params})=>fetch(`https://swift-fix-server-side.vercel.app/services/${params.id}`),
+        loader:({params})=>fetch(`http://localhost:3001/services/${params.id}`),
         element:<Privateroute><UpdateService></UpdateService></Privateroute>,
         },
         {
@@ -64,7 +79,7 @@ const router = createBrowserRouter([
             path:'/services/:id',
             hydrateFallbackElement:<Spinner></Spinner>,
             element:<Privateroute><ServiceDetails></ServiceDetails></Privateroute>,
-            loader:({params})=>fetch(`https://swift-fix-server-side.vercel.app/services/${params.id}`)
+            loader:({params})=>fetch(`http://localhost:3001/services/${params.id}`)
         },
         {
             path:'/login',

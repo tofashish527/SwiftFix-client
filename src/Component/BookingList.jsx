@@ -4,7 +4,7 @@ import BookingRow from './BookingRow';
 const BookingList = ({myBookingPromise}) => {
     const myBooking=use(myBookingPromise)
     return (
-           <div className="max-w-5xl mx-auto px-4 py-6">
+           <div className="max-w-5xl mx-auto px-4 py-6 pt-25">
 
      {myBooking.length==0 && <h2 className="text-2xl font-semibold mb-4 text-center">You Havn't Booked Any Service Yet.</h2>}
       <h2 className="text-2xl font-semibold mb-4 text-center">

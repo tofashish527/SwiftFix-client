@@ -1,3 +1,3 @@
 export const myBookingPromise=(email)=>{
-    return fetch(`https://swift-fix-server-side.vercel.app/booking?email=${email}`).then(res=>res.json())
+    return fetch(`http://localhost:3001/booking?email=${email}`).then(res=>res.json())
 }

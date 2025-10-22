@@ -15,7 +15,7 @@ const handleDelete = (id) => {
     confirmButtonText: 'Yes, delete it!',
   }).then((result) => {
     if (result.isConfirmed) {
-      axios.delete(`https://swift-fix-server-side.vercel.app/services/${id}`)
+      axios.delete(`http://localhost:3001/services/${id}`)
         .then((res) => {
           if (res.data.deletedCount > 0) {
             Swal.fire('Deleted!', 'Your service has been deleted.', 'success').then(() => {
@@ -33,7 +33,7 @@ const handleDelete = (id) => {
 
     
     return (
-         <div className="max-w-6xl mx-auto px-4 py-8">
+         <div className="max-w-6xl mx-auto px-4 py-8 pt-25">
      {service.length==0 && <h2 className="text-2xl font-semibold mb-4 text-center">You Havn't Posted Any Servicet.</h2>}
       <h2 className="text-2xl font-bold mb-6 text-center">
         Service Added By You: <span className="text-blue-600">{service.length}</span>
@@ -45,7 +45,6 @@ const handleDelete = (id) => {
             <tr>
               <th>#</th>
               <th>Service Name</th>
-              <th>Service Img.</th>
               <th>Area</th>
               <th>Price</th>
               <th>Action</th>
@@ -56,11 +55,6 @@ const handleDelete = (id) => {
               <tr key={svc._id}>
                 <td className="font-medium">{index + 1}</td>
                 <td className="font-semibold">{svc.serviceName}</td>
-                <td><img
-  src={svc.imageUrl || "image"}
-  alt="Service"
-  className=" object-cover"
-/></td>
                 <td>{svc.serviceArea}</td>
                 <td>{svc.servicePrice}</td>
                    <td className="flex flex-col lg:flex-row gap-2 mt-3">

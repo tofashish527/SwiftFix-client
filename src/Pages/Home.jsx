@@ -4,9 +4,10 @@ import WhySwiftFix from '../Component/WhySwiftFix';
 import Banner from '../Component/Banner';
 import Review from '../Component/Review';
 import { Helmet } from 'react-helmet';
+import Newsletter from '../Component/Newsletter';
 
 const Home = () => {
-    const servicePromise=fetch('https://swift-fix-server-side.vercel.app/services').then(res=>res.json())
+    const servicePromise=fetch('http://localhost:3001/services').then(res=>res.json())
     return (
         <div>
              <Helmet>
@@ -18,6 +19,7 @@ const Home = () => {
             <Banner></Banner>
             <PopularServices servicePromise={servicePromise}></PopularServices>
             <WhySwiftFix></WhySwiftFix>
+            <Newsletter></Newsletter>
             <Review></Review>
         </div>
     );

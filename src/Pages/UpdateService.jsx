@@ -9,40 +9,50 @@ const UpdateService = () => {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
   const service = useLoaderData();
-  const { _id, serviceName, imageUrl, area, price, description } = service;
+  const { _id, serviceName, serviceImage, serviceArea, servicePrice, serviceDescription } = service;
 
-  const handleUpdateService = (e) => {
+  const handleUpdateService = async (e) => {
     e.preventDefault();
     const form = e.target;
     const formData = new FormData(form);
     const updatedData = Object.fromEntries(formData.entries());
 
-    axios.put(`https://swift-fix-server-side.vercel.app/services/${_id}`, updatedData)
-      .then((res) => {
-        if (res.data.modifiedCount > 0) {
-          Swal.fire({
-            icon: 'success',
-            title: 'Service updated successfully!',
-            timer: 1500,
-            showConfirmButton: false
-          });
-          navigate('/manageservices');
-        }
-      })
-      .catch(console.error);
+    try {
+      const res = await axios.put(`http://localhost:3001/services/${_id}`, updatedData);
+
+      if (res.data.success) {
+        Swal.fire({
+          icon: 'success',
+          title: 'Service updated successfully!',
+          timer: 1500,
+          showConfirmButton: false
+        });
+        navigate('/manageservices');
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Update failed',
+          text: res.data.message,
+        });
+      }
+    } catch (err) {
+      console.error('Error updating service:', err);
+      Swal.fire({
+        icon: 'error',
+        title: 'Error updating service',
+        text: 'Something went wrong. Please try again.',
+      });
+    }
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-6 bg-indigo-50 mb-10 rounded-xl shadow-md mt-6">
-       <Helmet>
-        <title>
-          SwiftFix | UpdateService
-        </title>
+    <div className="max-w-4xl mx-auto p-6 bg-indigo-50 mb-10 rounded-xl shadow-md mt-30">
+      <Helmet>
+        <title>SwiftFix | Update Service</title>
       </Helmet>
       <h1 className="text-3xl font-bold mb-6 text-center">Update Service</h1>
 
       <form onSubmit={handleUpdateService} className="space-y-6">
-
         <fieldset className="border rounded-md p-4">
           <legend className="text-lg font-semibold mb-2">Service Information</legend>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -52,19 +62,19 @@ const UpdateService = () => {
             </div>
             <div>
               <label className="block mb-1 text-sm font-medium">Image URL</label>
-              <input type="text" name="imageUrl" defaultValue={imageUrl} className="input input-bordered w-full" required />
+              <input type="text" name="imageUrl" defaultValue={serviceImage} className="input input-bordered w-full" required />
             </div>
             <div>
               <label className="block mb-1 text-sm font-medium">Price</label>
-              <input type="number" name="price" defaultValue={price} className="input input-bordered w-full" required />
+              <input type="number" name="price" defaultValue={servicePrice} className="input input-bordered w-full" required />
             </div>
             <div>
               <label className="block mb-1 text-sm font-medium">Area</label>
-              <input type="text" name="area" defaultValue={area} className="input input-bordered w-full" required />
+              <input type="text" name="area" defaultValue={serviceArea} className="input input-bordered w-full" required />
             </div>
           </div>
           <label className="block mb-1 mt-2 text-sm font-medium">Description</label>
-          <textarea name="description" defaultValue={description} className="textarea textarea-bordered w-full" rows={4} required />
+          <textarea name="description" defaultValue={serviceDescription} className="textarea textarea-bordered w-full" rows={4} required />
         </fieldset>
 
         <fieldset className="border rounded-md p-4">
