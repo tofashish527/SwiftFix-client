@@ -58,38 +58,37 @@ export default function ContactUs() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50 flex flex-col justify-center pt-28 pb-16 px-4 sm:px-6 lg:px-8">
-      {/* Background Decorative Elements */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-cyan-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-2000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-4000"></div>
-      </div>
-
+    <div className="min-h-screen bg-gradient-to-b from-cyan-900 via-sky-900 to-blue-900 flex flex-col justify-center pt-10 pb-16 px-4 sm:px-6 lg:px-8">
+     {/* Background Decorative Elements */}
+{/* Background Decorations */}
+<div className="fixed inset-0 opacity-10 pointer-events-none">
+  <div className="absolute top-20 left-10 w-40 h-40 bg-cyan-400 rounded-full blur-3xl"></div>
+  <div className="absolute bottom-20 right-10 w-32 h-32 bg-blue-400 rounded-full blur-3xl"></div>
+  <div className="absolute top-1/2 left-1/3 w-28 h-28 bg-sky-400 rounded-full blur-3xl"></div>
+</div>
       {/* Header Section */}
-      <motion.div
-        initial={{ opacity: 0, y: -30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="text-center mb-16 relative z-10"
-      >
-        <motion.div
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-          className="w-20 h-1 bg-gradient-to-r from-blue-600 to-cyan-500 mx-auto mb-6 rounded-full"
-        ></motion.div>
-        <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-blue-900 via-blue-700 to-cyan-600 bg-clip-text text-transparent mb-6">
-          Get In Touch
-        </h1>
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-          We're here to help and answer any questions you might have. 
-          <span className="block text-blue-600 font-semibold mt-2">
-            Let's create something amazing together!
-          </span>
-        </p>
-      </motion.div>
-
+     <motion.div
+  initial={{ opacity: 0, y: -30 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6 }}
+  className="text-center mb-16 relative z-10"
+>
+  <motion.div
+    initial={{ scale: 0 }}
+    animate={{ scale: 1 }}
+    transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
+    className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto mb-6 rounded-full"
+  ></motion.div>
+  <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-blue-400 to-sky-400 bg-clip-text text-transparent mb-4">
+    Get In Touch
+  </h1>
+  <p className="text-xl text-cyan-100 max-w-3xl mx-auto leading-relaxed">
+    We're here to help and answer any questions you might have. 
+    <span className="block text-cyan-300 font-semibold mt-2">
+      Let's create something amazing together!
+    </span>
+  </p>
+</motion.div>
       {/* Main Content Grid */}
       <div className="max-w-7xl mx-auto w-full relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">

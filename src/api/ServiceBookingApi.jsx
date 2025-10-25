@@ -1,4 +1,4 @@
 // export const serviceBookedByPromise=email=>{
-//     return fetch(`http://localhost:3001/services/booking?email=${email}`)
+//     return fetch(`https://b11a11-server-side-tofashish527.vercel.app/services/booking?email=${email}`)
 //     .then(res=>res.json())
 // }

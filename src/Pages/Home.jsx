@@ -7,7 +7,7 @@ import { Helmet } from 'react-helmet';
 import Newsletter from '../Component/Newsletter';
 
 const Home = () => {
-    const servicePromise=fetch('http://localhost:3001/services').then(res=>res.json())
+    const servicePromise=fetch('https://b11a11-server-side-tofashish527.vercel.app/services').then(res=>res.json())
     return (
         <div>
              <Helmet>

@@ -250,7 +250,6 @@ import logoo from "../assets/img/logoo.png";
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [dashboardOpen, setDashboardOpen] = useState(false);
 
   const handleLogOut = () => {
     logOut()
@@ -265,7 +264,6 @@ const Navbar = () => {
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
-  const toggleDashboard = () => setDashboardOpen(!dashboardOpen);
 
   return (
     <nav className="fixed top-0 left-0 w-full bg-gradient-to-r from-blue-900 to-cyan-600 text-white shadow-lg z-50">
@@ -293,59 +291,13 @@ const Navbar = () => {
             Find Us Near You
           </NavLink>
 
-          {user && (
-            <div
-              className="relative group"
-              onMouseEnter={() => setDashboardOpen(true)}
-              onMouseLeave={() => setDashboardOpen(false)}
-            >
-              <button className="flex items-center space-x-1 text-gray-200 hover:text-white">
+         
+              <NavLink to='/dashboard/addservice' className="flex items-center space-x-1 text-gray-200 hover:text-white">
                 <span>Dashboard</span>
-                <ChevronDown
-                  size={18}
-                  className={`transform transition-transform duration-300 ${
-                    dashboardOpen ? "rotate-180" : ""
-                  }`}
-                />
-              </button>
-              {dashboardOpen && (
-                <ul className="absolute left-0 mt-2 w-56 bg-white text-blue-900 rounded-lg shadow-lg py-2 transition-all animate-fadeIn">
-                  <li>
-                    <NavLink
-                      to="/addservice"
-                      className="block px-4 py-2 hover:bg-blue-100 font-medium"
-                    >
-                      Add Service
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink
-                      to="/manageservices"
-                      className="block px-4 py-2 hover:bg-blue-100 font-medium"
-                    >
-                      Manage Services
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink
-                      to="/bookedservices"
-                      className="block px-4 py-2 hover:bg-blue-100 font-medium"
-                    >
-                      Booked Services
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink
-                      to="/booking/:id"
-                      className="block px-4 py-2 hover:bg-blue-100 font-medium"
-                    >
-                      Services To Do
-                    </NavLink>
-                  </li>
-                </ul>
-              )}
-            </div>
-          )}
+               
+              </NavLink>
+              
+          
 
           {user && (
             <>
@@ -407,43 +359,14 @@ const Navbar = () => {
 
           {user && (
             <div>
-              <button
-                onClick={toggleDashboard}
+              <NavLink to='/dashboard/addservice'
                 className="flex justify-between items-center w-full text-white font-medium py-2"
               >
                 Dashboard
-                <ChevronDown
-                  size={18}
-                  className={`transform transition-transform duration-300 ${
-                    dashboardOpen ? "rotate-180" : ""
-                  }`}
-                />
-              </button>
+                
+              </NavLink>
 
-              {dashboardOpen && (
-                <ul className="pl-4 space-y-2">
-                  <li>
-                    <NavLink to="/addservice" onClick={toggleMenu} className="block text-gray-200 hover:text-white">
-                      Add Service
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink to="/manageservices" onClick={toggleMenu} className="block text-gray-200 hover:text-white">
-                      Manage Service
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink to="/bookedservices" onClick={toggleMenu} className="block text-gray-200 hover:text-white">
-                      Booked Services
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink to="/servicestodo" onClick={toggleMenu} className="block text-gray-200 hover:text-white">
-                      Services To Do
-                    </NavLink>
-                  </li>
-                </ul>
-              )}
+             
             </div>
           )}
 

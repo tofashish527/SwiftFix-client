@@ -334,17 +334,17 @@ export default function FindUsNearYou() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-cyan-50 pt-15 pb-16">
-      {/* Header */}
-      <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45 }} className="text-center mb-12 px-4">
-        <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-cyan-500 mx-auto mb-6 rounded-full" />
-        <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-900 via-blue-700 to-cyan-600 bg-clip-text text-transparent mb-3">
-          Find Us Near You
-        </h1>
-        <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-          Discover SwiftFix service centers across Bangladesh. Search, filter, or detect your location to see nearest centers.
-        </p>
-      </motion.div>
+    <div className="min-h-screen bg-gradient-to-br from-cyan-900 via-sky-900 to-blue-900 pt-15 pb-16">
+     {/* Header */}
+     <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45 }} className="text-center mb-12 px-4">
+  <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto mb-6 rounded-full" />
+  <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-blue-400 to-sky-400 bg-clip-text text-transparent mb-3">
+    Find Us Near You
+  </h1>
+  <p className="text-lg text-cyan-100 max-w-3xl mx-auto">
+    Discover SwiftFix service centers across Bangladesh. Search, filter, or detect your location to see nearest centers.
+  </p>
+</motion.div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Controls */}
